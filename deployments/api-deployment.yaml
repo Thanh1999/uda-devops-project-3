@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api-app
-          image: 981073987542.dkr.ecr.us-east-1.amazonaws.com/demo-database:0.0.1
+          image: 981073987542.dkr.ecr.us-east-1.amazonaws.com/demo-database:latest
           ports:
             - containerPort: 5153
           envFrom:
