@@ -1,4 +1,4 @@
-# Woking with depolyment
+# Woking with deployment
 1. User need to install awscli, kubectl, git to work with project
 2. Configured the aws using "aws configured" to set the secret key id and access key to have the correct credential when using kubectl
 3. Then run "aws eks update-kubeconfig --name udaci" - udaci is the cluster of the project
