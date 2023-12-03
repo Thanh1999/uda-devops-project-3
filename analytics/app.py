@@ -1,5 +1,6 @@
 import logging
 import os
+import json
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime, timedelta
@@ -44,13 +45,12 @@ def get_daily_visits():
             response[str(row[0])] = row[1]
 
         app.logger.info(response)
-
     return response
 
 
 @app.route("/api/reports/daily_usage", methods=["GET"])
 def daily_visits():
-    return jsonify(get_daily_visits)
+    return jsonify(get_daily_visits())
 
 
 @app.route("/api/reports/user_visits", methods=["GET"])

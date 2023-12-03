@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-app
+  template:
+    metadata:
+      labels:
+        app: api-app
+    spec:
+      containers:
+        - name: api-app
+          image: 981073987542.dkr.ecr.us-east-1.amazonaws.com/demo-database:0.0.1
+          ports:
+            - containerPort: 5153
+          envFrom:
+          - configMapRef:
+              name: env-configmap
+          - secretRef:
+              name: env-secret
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
